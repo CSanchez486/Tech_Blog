@@ -2,12 +2,12 @@ Tech Blog Pseudocode
 
 Programs needed:
 Handlebars
-MySQL2
-Sequelize 
-Express - API for Controllers
-Dotenv
-Bcrypt
-Express-session: Use cookies to expire log-in (default)
+x   MySQL2
+x   Sequelize 
+x   Express - API for Controllers
+x   Dotenv
+x   Bcrypt
+x   Express-session: Use cookies to expire log-in (default)
 Connect-session-sequelize
 
 Grading Criteria:
