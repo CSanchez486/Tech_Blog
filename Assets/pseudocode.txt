@@ -1,0 +1,28 @@
+Tech Blog Pseudocode
+
+Programs needed:
+Handlebars
+MySQL2
+Sequelize 
+Express - API for Controllers
+Dotenv
+Bcrypt
+Express-session: Use cookies to expire log-in (default)
+Connect-session-sequelize
+
+Grading Criteria:
+- Folders need MVC structure
+- Uses Handlebars for view
+- Deployed to Heroku w/ Live URl, no errors
+- github url & repo link 
+- clean style  & looks like mock-up
+- needs readme w/ screenshots 
+- SUBMIT: deployed url & github repo url
+
+Acceptance Criteria:
+- homepage w/ blog posts, nav links & dashboard
+- redirects to login page to sign in 
+- need to be able to sign up and log-in
+- can post, edit 
+
+
