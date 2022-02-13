@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 
 // referenced Module 14-28
 class User extends Model {
+    // password is being compared by bcrypt
     checkPassword(loginPw){
         return bcrypt.compareSync(loginPw, this.password);
     }
