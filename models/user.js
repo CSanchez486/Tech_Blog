@@ -31,6 +31,21 @@ User.init({
             len: [12],
         },
     },
-
-})
+    // referenced Module 14-28
+    hooks: {
+        beforeCreate: async (newUser) => {
+            newUser.password = await bcrypt.hash(newUser.password, 10);
+            return newUser;
+            },
+        beforeCreate: async (updateUser) => {
+            updateUser.password = await bcrypt.hash(newUser.password,10);
+            return newUser;
+        },
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'User',
+});
 
