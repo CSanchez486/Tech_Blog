@@ -5,11 +5,11 @@ class Post extends Model {}
 
 Post.init({
     title: {
-        type: DataTypes,STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     body: {
-        type: DataTypes,STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
 },
