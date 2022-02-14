@@ -20,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
 // ref: module 14 - 10
 router.put('/:id', async(req,res) => {
     try {
-        const post = await Post.update({ 
+        const postUpdate = await Post.update({ 
             title: req.body.title,
             body: req.body.body,
         });
