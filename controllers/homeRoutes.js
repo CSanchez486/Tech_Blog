@@ -19,7 +19,7 @@ router.get("./post/:id", async (req,res) => {
         });   
         //  if singlePost runs then plain text will be pulled and post on the home page
         if (singlePost){
-            const post = singlePost.get({plain: text})
+            const post = singlePost.get({plain: true})
         res.render('singlePost', { post });
         } else {
             res.status(400).end();
@@ -31,6 +31,18 @@ router.get("./post/:id", async (req,res) => {
 });
 
 // get many posts
+router.get("./", async (req,res) => {
+    try{
+        const manyPosts = await Post.findAll({
+            // user needs to be shown with post per readme
+            include: User,
+        });
+        const posts = manyPosts.get({plain: true});
+        res.rebder('manyPosts', { posts });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 // get sign-up
 
