@@ -4,6 +4,17 @@ const withAuth = require('../../utils/authUser')
 
 // referenced: 14 -28 projectRoute.js
 // post gets posted
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const newPost = await Post.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newPost);
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
 
 
 
@@ -13,3 +24,17 @@ const withAuth = require('../../utils/authUser')
 
 
 //post gets deleted
+
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const [editedPost] = await Post.destroy({
+            where: {
+                user_id: req.params.user_id,
+            }
+        })
+
+        //  need if/else statement
+    }
+
+    // need catch for 500 error
+})
