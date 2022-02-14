@@ -30,7 +30,6 @@ router.get("./post/:id", async (req,res) => {
     }
 });
 
-
 // get many posts
 
 // get sign-up
