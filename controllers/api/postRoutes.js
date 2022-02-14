@@ -20,17 +20,15 @@ router.post('/', withAuth, async (req, res) => {
 // ref: module 14 - 10
 router.put('/:id', async(req,res) => {
     try {
-        const post = await Post.update(
-            {
-            
-            } catch (err) {
-                res.status(500).json(err);
-            }
-        )
+        const post = await Post.update({ 
+            title: req.body.title,
+            body: req.body.body,
+        });
+        res.status(200).json.end();
+    } catch (err) {
+        res.status(500).json(err)
     }
- })
-
-
+});
 
 
 //post gets deleted
