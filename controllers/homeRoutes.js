@@ -16,7 +16,14 @@ router.get("./post/:id", async (req,res) => {
                     include: ['User'],
                 },
             ],
-        });        
+        });   
+        //  if singlePost runs then plain text will be pulled and post on the home page
+        if (singlePost){
+            const post = singlePost.get({plain: text})
+        }
+        res.render('', {
+
+        })
     } catch (err) {
         // 500 status will appear if an error is caught
         res.status(500).json(err);
