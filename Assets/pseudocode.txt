@@ -11,10 +11,10 @@ x   Express-session: Use cookies to expire log-in (default)
 Connect-session-sequelize
 
 Grading Criteria:
-- Folders need MVC structure
+x- Folders need MVC structure
 - Uses Handlebars for view
 - Deployed to Heroku w/ Live URl, no errors
-- github url & repo link 
+x - github url & repo link 
 - clean style  & looks like mock-up
 - needs readme w/ screenshots 
 - SUBMIT: deployed url & github repo url
