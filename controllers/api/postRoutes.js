@@ -24,17 +24,24 @@ router.post('/', withAuth, async (req, res) => {
 
 
 //post gets deleted
-
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const [editedPost] = await Post.destroy({
             where: {
                 user_id: req.params.user_id,
-            }
-        })
+            },
+        });
 
         //  need if/else statement
-    }
-
+        if ([editedPost] !== 0) {
+            // ends response without data
+            // referenced: https://expressjs.com/en/api.html
+            res. status(200).end();
+        } else {
+            res. status(404).end();
+        }    
     // need catch for 500 error
-})
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
