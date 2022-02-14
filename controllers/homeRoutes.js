@@ -38,13 +38,20 @@ router.get("./", async (req,res) => {
             include: User,
         });
         const posts = manyPosts.get({plain: true});
-        res.rebder('manyPosts', { posts });
+        res.render('manyPosts', { posts });
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
 // get sign-up
+router.get('/login', (req, res) => {
+    if(req.session.loggedIn){
+        res.redirect('/');
+        return;
+    }
+    res.render('signup')
+})
 
 // referenced module 14 - 16
 // get log-in
@@ -57,3 +64,5 @@ router.get('/login', (req, res) => {
     // if user is not logged in they go to the login page
     res.render('login');
 });
+
+module.exports = router;
