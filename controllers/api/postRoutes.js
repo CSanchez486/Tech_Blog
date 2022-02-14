@@ -16,10 +16,20 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+// post gets updated using router.put
+// ref: module 14 - 10
+router.put('/:id', async(req,res) => {
+    try {
+        const post = await Post.update(
+            {
 
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        )
+    }
+ })
 
-
-// post gets updated
 
 
 
