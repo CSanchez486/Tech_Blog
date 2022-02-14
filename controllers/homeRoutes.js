@@ -45,11 +45,13 @@ router.get("./", async (req,res) => {
 })
 
 // get sign-up
-router.get('/login', (req, res) => {
+// after user signs up they are logged in, then redirected back to homepage
+router.get('/signup', (req, res) => {
     if(req.session.loggedIn){
         res.redirect('/');
         return;
     }
+    //if user has not signed up they will be redirected to the signup page
     res.render('signup')
 })
 
