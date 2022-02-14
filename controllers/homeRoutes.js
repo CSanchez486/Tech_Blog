@@ -46,4 +46,14 @@ router.get("./", async (req,res) => {
 
 // get sign-up
 
+// referenced module 14 - 16
 // get log-in
+router.get('/login', (req, res) => {
+    // user gets redirected to homepage if they are already logged in 
+    if (req.session.loggedIn){
+        res.redirect('/');
+        return;
+    }
+    // if user is not logged in they go to the login page
+    res.render('login');
+});
