@@ -9,14 +9,17 @@ const app = express();
 const { Sequelize } = require("sequelize");
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3007;
 
 
 
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
-
-sequelize.sync({ force: false }).then (() => {
-    app.listen(PORT,() => console.log(`${PORT} is listening`));
-})
+// Referenced: Module 14 - 01
+// server listens then runs sequelize.sync
+app.listen(PORT,() => {
+    console.log(`${PORT} is listening`);
+    // sequelize.sync({ force: false });
+});
+    
