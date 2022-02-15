@@ -10,10 +10,15 @@ router.post('/', async (req,res) => {
             password: req.body.password,
         });
         
+        //id is created as unique identifier per username
         req.session.save(() => {
-            req.session.user_id =newUser.id;
-            req.session.
+            req.session.user_id = newUser.id;
+            req.session.user_username = newUser.username;
+
         });
+        res.status(200)json(newUser);
+    } catch (err) {
+            res.status(500).json(err);
     };
 });
 
