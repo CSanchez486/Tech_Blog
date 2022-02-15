@@ -22,10 +22,21 @@ router.post('/', async (req,res) => {
     };
 });
 
-
-
-
+//ref: Module 14 - 28 userRoutes
 // login - needs to validate credentials
+
+router.post('/login', async (req,res) => {
+    try {
+        const userName = await User.findone({
+            where: {username: req.body.username}
+        });
+        if (!userName) {
+            res.status(400).json({ message: 'Incorrect Username Used'});
+            return;
+
+        }
+    }
+});
 
 
 module.exports = router;
