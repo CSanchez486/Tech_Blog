@@ -14,7 +14,6 @@ router.post('/', async (req,res) => {
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.user_username = newUser.username;
-
         });
         res.status(200)json(newUser);
     } catch (err) {
@@ -27,8 +26,8 @@ router.post('/', async (req,res) => {
 
 router.post('/login', async (req,res) => {
     try {
-        const userName = await User.findone({
-            where: {username: req.body.username}
+        const userName = await User.findOne({
+            where: { username: req.body.username }
         });
         if (!userName) {
             res.status(400).json({ message: 'Incorrect Username Used'});
@@ -42,6 +41,13 @@ router.post('/login', async (req,res) => {
             res.status(400).json({ message: 'Incorrect Password Used'});
         return;
         }
+
+        req.session.save(() => {
+            req.session.user_id = userName.id;
+            req.session.user_name = newUser.username;
+            req.session.logged_in = true;
+        });
+
 
     }
 });
